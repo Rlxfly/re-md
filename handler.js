@@ -361,19 +361,29 @@ export async function participantsUpdate({ id, participants, action }) {
     let chat = global.db.data.chats[id] || {}
     let text = ''
     switch (action) {
-        case 'add':
+         case 'add':
         case 'remove':
             if (chat.welcome) {
                 let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata
                 for (let user of participants) {
-                    let pp = './src/avatar_contact.png'
-                    try {
-                        pp = await this.profilePictureUrl(user, 'image')
-                    } catch (e) {
-                    } finally {
-                        text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || '') :
+                  let pp = 'https://telegra.ph/file/24fa902ead26340f3df2c.png'
+            try {
+              pp = await( await conn.profilePictureUrl(user, 'image').catch(() => 'https://telegra.ph/file/24fa902ead26340f3df2c.png'))
+            } catch (e) {
+            } finally {
+                        text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() ||  '') :
                             (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0])
-                        this.sendFile(id, pp, 'pp.jpg', text, null, false, { mentions: [user] })
+                        //this.sendFile(id, pp, 'pp.jpg', text, null, false, { mentions: [user] })
+
+                     
+                       this.sendMessage(id, {text: text, thumbnail: await( await this.getFile(pp)).data , contextInfo:{ mentionedJid: [user] , externalAdReply: { showAdAttribution: true,
+mediaType:  2,
+mediaUrl: 'https://www.instagram.com/p/Cch2IoGFomX/?utm_source=ig_web_copy_link',
+title: '「 𝑾𝒆𝒍𝒄𝒐𝒎𝒆 𝑴𝒆𝒔𝒔𝒂𝒈𝒆 」',
+body: me,
+sourceUrl: 'https://www.instagram.com/p/Cch2IoGFomX/?utm_source=ig_web_copy_link', thumbnail: await( await this.getFile(pp)).data
+  }
+ }})
                     }
                 }
             }
