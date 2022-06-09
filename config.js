@@ -4,14 +4,10 @@ import { watchFile, unwatchFile, readFileSync } from 'fs'
 
 global.owner = 
  [
-  ['+62 838-2007-3017'],
+  ['+62 838-2007-3017','Re-'],
   ['+62 878-2765-9529'],
   ['+62 852-4075-0713']
 ]
-
-
-
- // ['6283820073017', '436506665652696', '6285240750713']
 
   // [number, dia creator/owner?, dia developer?]
 // Put your number here
