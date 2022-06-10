@@ -223,6 +223,6 @@ global.owner = [
 
 
 #### Special Thanks to
-[![Ryn](https://github.com/Kachi-chan.png?size=100)](https://github.com/Kachi-chan)
+[![Ryn](https://github.com/Rainprjkt.png?size=100)](https://github.com/Rainprjkt)
 [![Rlxfly](https://github.com/Rlxfly.png?size=100)](https://github.com/Rlxfly)
 
