@@ -8,6 +8,9 @@
 
 #### Deploy to Heroku
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Rlxfly/re-md)
+-----------
+### Deploy to Replit
+[![Run on Repl.it](https://repl.it/badge/github/Rlxfly/re-md)](https://repl.it/github/Rlxfly/re-md)
 
 #### Heroku Buildpack
 | BuildPack | LINK |
