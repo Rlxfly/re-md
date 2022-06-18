@@ -84,17 +84,22 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
 
                          let hi = `\n\n\t\t _Have a good day ${name}_ \t\t\n\n`
-    // const pp = await conn.profilePictureUrl(conn.user.jid, 'image').catch(_ => './src/avatar_contact.png')
-    // if (m.isGroup) return conn.sendButton(m.chat, text.trim(), conn.getName(conn.user.jid), pp, [['Speedtest', _p + 'ping'], ['Owner', _p + 'owner']], m)
-    // conn.sendHydrated(m.chat, text.trim(), conn.getName(conn.user.jid), pp, null, null, null, null, [['Speedtest', _p + 'ping'], ['Owner', _p + 'owner']])
-   // conn.sendMessage(m.chat, { video: { url: 'https://telegra.ph/file/c82d5c358495e8ef15916.mp4' }, gifPlayback: true, gifAttribution: ~~(Math.random() * 2), caption: text.trim(), footer: await conn.getName(conn.user.jid) , templateButtons: [{ quickReplyButton: { displayText: 'Speedtest', id: `${_p}ping` }}, { quickReplyButton: { displayText: 'Owner', id: `${_p}owner` }} ] })
-     /*
+                         
+                         const vi = ['https://telegra.ph/file/067b2cb3312837533239c.mp4',
+'https://telegra.ph/file/e38881701692c74484a17.mp4',
+'https://telegra.ph/file/de776d34ef058b7d2ec12.mp4']
+
+var vid = vi[Math.floor(Math.random() * (vi.length))]
+
+//Image button(simple version)
+       /*
 conn.sendButton(m.chat, text.trim(), conn.user.name, await genProfile(conn, m), [['Speedtest', _p + 'ping'], ['Owner', _p + 'owner']], m)
 */
 
 let pp = await( await conn.profilePictureUrl(m.sender, 'image').catch(() => 'https://telegra.ph/file/24fa902ead26340f3df2c.png'))
 
-//Jejak
+//Image button + externalAdReply
+ /* 
  conn.sendButton(m.chat, hi, text.trim(), await genProfile(conn, m), [['OWNER', '-owner']], false, { quoted: m, contextInfo: { externalAdReply: { showAdAttribution: true,
 mediaType:  2,
 mediaUrl: 'https://youtu.be/Nq3x1AkwgpY',
@@ -104,6 +109,10 @@ sourceUrl: 'http://s.id/0x404', thumbnail: await( await conn.getFile(pp)).data
   }
  } 
 })
+*/
+
+// Gif button
+conn.sendMessage(m.chat, { video: { url: vid }, gifPlayback: true, gifAttribution: ~~(Math.random() * 2), caption: text.trim(), footer: me , templateButtons: [{ quickReplyButton: { displayText: 'Speedtest', id: `${_p}ping` }}, { quickReplyButton: { displayText: 'Owner', id: `${_p}owner` }} ] })
   } catch (e) {
     m.reply('An error occurred')
     m.reply(e)
