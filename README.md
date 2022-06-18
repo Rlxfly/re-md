@@ -9,15 +9,15 @@
 |--------|--------|
 | **TITTLE** |[here](https://github.com/Rlxfly/re-md/edit/main/README.md#simple-md-bot) |
 | **ESM BOT** | [here](https://github.com/Rlxfly/re-md/edit/main/README.md#note-this-bot-is-esm-bot) |
-| **PRIVIEW** |[here](https://github.com/Rlxfly/re-md/edit/main/README.md#preview-bot) |
-| **NOTE** |[here](https://github.com/Rlxfly/re-md/edit/main/README.md#-english-) |
-| **TERMUX INSTALATION** |[here](https://github.com/Rlxfly/re-md/edit/main/README.md#for-termux-user) |
-| **TERMUX W/ UBUNTU** |[here](https://github.com/Rlxfly/re-md/edit/main/README.md#install-on-termux-with-ubuntu) |
-| **WINDOWS INSTALATION** |[here](https://github.com/Rlxfly/re-md/edit/main/README.md#for-windowsvpsrdp-user) | 
-| **ARGUMENTS OF RUNNING BOT** |[here](https://github.com/Rlxfly/re-md/edit/main/README.md#arguments-node----options-session-name) |
-| **FAQ** |[here](https://github.com/Rlxfly/re-md/edit/main/README.md#faq) | 
-| **CONTRIBUTE!!** |[here](https://github.com/Rlxfly/re-md/edit/main/README.md#want-to-contribute) |
-| **THATS TO** |[here](https://github.com/Rlxfly/re-md/edit/main/README.md#thanks-to) | 
+| **PRIVIEW** |[here](https://github.com/Rlxfly/re-md/#preview-bot) |
+| **NOTE** |[here](https://github.com/Rlxfly/re-md/#-english-) |
+| **TERMUX INSTALATION** |[here](https://github.com/Rlxfly/re-md/#for-termux-user) |
+| **TERMUX W/ UBUNTU** |[here](https://github.com/Rlxfly/re-md/#install-on-termux-with-ubuntu) |
+| **WINDOWS INSTALATION** |[here](https://github.com/Rlxfly/re-md/#for-windowsvpsrdp-user) | 
+| **ARGUMENTS OF RUNNING BOT** |[here](https://github.com/Rlxfly/re-md/#arguments-node----options-session-name) |
+| **FAQ** |[here](https://github.com/Rlxfly/re-md/#faq) | 
+| **CONTRIBUTE!!** |[here](https://github.com/Rlxfly/re-md/#want-to-contribute) |
+| **THATS TO** |[here](https://github.com/Rlxfly/re-md/#thanks-to) | 
 
 --------
 ## NOTE: THIS BOT IS [ESM](https://nodejs.org/api/esm.html) BOT
