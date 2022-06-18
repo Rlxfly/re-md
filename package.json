@@ -1,7 +1,7 @@
 {
-    "name": "games-wabot",
-    "version": "0.9.86",
-    "description": "Customizable WhatsApp Bot",
+    "name": "re-md",
+    "version": "1.2.0",
+    "description": "Simple WhatsApp Bot",
     "main": "index.js",
     "type": "module",
     "directories": {
@@ -26,16 +26,16 @@
         "MD",
         "baileys-md"
     ],
-    "homepage": "https://github.com/BochilGaming/games-wabot",
+    "homepage": "https://github.com/Rlxfly/re-md",
     "author": {
-        "name": "BochilGaming"
+        "name": "Rlxfly"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/BochilGaming/games-wabot.git"
+        "url": "git+https://github.com/Rlxfly/re-md.git"
     },
     "bugs": {
-        "url": "https://github.com/BochilGaming/games-wabot/issues"
+        "url": "https://github.com/Rlxfly/re-md/issues"
     },
     "license": "GPL-3.0-or-later",
     "dependencies": {
@@ -92,6 +92,7 @@
         "yargs": "^17.3.1",
         "youtube-notifs": "^3.0.3",
         "ytdl-core": "^4.11.0",
+        "ytdl-core-muxer": "^1.0.1",
         "zs-extract": "^1.4.1"
     }
 }
