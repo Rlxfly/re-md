@@ -1,11 +1,42 @@
-### SIMPLE MD BOT
+# SIMPLE MD BOT
 
 ## `READ README FIRST BEFORE USE THIS BOT!`
 
+--------
+# 📑 List Of This Readme
+
+| Name | LINK |
+|--------|--------|
+| **TITTLE** |[here](https://github.com/Rlxfly/re-md/edit/main/README.md#simple-md-bot) |
+| **ESM BOT** | [here](https://github.com/Rlxfly/re-md/edit/main/README.md#note-this-bot-is-esm-bot) |
+| **PRIVIEW** |[here](https://github.com/Rlxfly/re-md/edit/main/README.md#preview-bot) |
+| **NOTE** |[here](https://github.com/Rlxfly/re-md/edit/main/README.md#-english-) |
+| **TERMUX INSTALATION** |[here](https://github.com/Rlxfly/re-md/edit/main/README.md#for-termux-user) |
+| **TERMUX W/ UBUNTU** |[here](https://github.com/Rlxfly/re-md/edit/main/README.md#install-on-termux-with-ubuntu) |
+| **WINDOWS INSTALATION** |[here](https://github.com/Rlxfly/re-md/edit/main/README.md#for-windowsvpsrdp-user) | 
+| **ARGUMENTS OF RUNNING BOT** |[here](https://github.com/Rlxfly/re-md/edit/main/README.md#arguments-node----options-session-name) |
+| **FAQ** |[here](https://github.com/Rlxfly/re-md/edit/main/README.md#faq) | 
+| **CONTRIBUTE!!** |[here](https://github.com/Rlxfly/re-md/edit/main/README.md#want-to-contribute) |
+| **THATS TO** |[here](https://github.com/Rlxfly/re-md/edit/main/README.md#thanks-to) | 
+
+--------
 ## NOTE: THIS BOT IS [ESM](https://nodejs.org/api/esm.html) BOT
 > I opened discussiond for asking any problem or new feature, if i agree with that i will invite you in my repo/pull request your idea in this source code :)
 ## BASE ORI BY [BG](https://github.com/BochilGaming/games-wabot/tree/multi-device)
+--------
+### Preview bot
 
+- [x] Welcome   *_Same as welcome in repo bot-tzy_
+- [x] Menu <details><summary>Screenshot</summary><img src="https://telegra.ph/file/abe9435cec00f6afb81d3.jpg"></details>
+- [x] Button Doccumment (_Still in experiment state_) <details><summary>Screenshot</summary><img src="https://telegra.ph/file/a2d24c71e7d0d67dcd05e.jpg"></details>
+
+
+
+## _「 ENGLISH 」_
+> You can also recode this bot, it's easy for newbie in code/whatsapp bot, `If you have problem chat me` in [this](http://wa.me/6283820073017) or [this one](http://wa.me/6287827659529) `NOTE!` if you chat to me impolitely, then I won't answer it, get used to greeting first :)
+
+## _「 INDONESIA 」_
+> Kamu juga bisa membuat ulang bot ini, ini sangat mudah untuk pemula dalam programing/bot whatsapp `Jika kamu punya masalah chat sy` ke [ini](http://wa.me/6283820073017) atau [yang ini](http://wa.me/6287827659529) `CATATAN!` jika kamu chat ke saya dengan tidak sopan 'p, woi', maka saya tidak akan menjawabnya, biasakan sapa terlebih dahulu :)
 #### Deploy to Heroku
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Rlxfly/re-md)
 -----------
