@@ -7,8 +7,8 @@
 
 | Name | LINK |
 |--------|--------|
-| **TITTLE** |[here](https://github.com/Rlxfly/re-md/edit/main/README.md#simple-md-bot) |
-| **ESM BOT** | [here](https://github.com/Rlxfly/re-md/edit/main/README.md#note-this-bot-is-esm-bot) |
+| **TITTLE** |[here](https://github.com/Rlxfly/re-md/#simple-md-bot) |
+| **ESM BOT** | [here](https://github.com/Rlxfly/re-md/#note-this-bot-is-esm-bot) |
 | **PRIVIEW** |[here](https://github.com/Rlxfly/re-md/#preview-bot) |
 | **NOTE** |[here](https://github.com/Rlxfly/re-md/#-english-) |
 | **TERMUX INSTALATION** |[here](https://github.com/Rlxfly/re-md/#for-termux-user) |
