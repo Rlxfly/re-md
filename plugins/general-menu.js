@@ -83,36 +83,42 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
 
-                         let hi = `\n\n\t\t _Have a good day ${name}_ \t\t\n\n`
-                         
-                         const vi = ['https://telegra.ph/file/067b2cb3312837533239c.mp4',
+const vi = ['https://telegra.ph/file/067b2cb3312837533239c.mp4',
 'https://telegra.ph/file/e38881701692c74484a17.mp4',
-'https://telegra.ph/file/de776d34ef058b7d2ec12.mp4']
+'https://telegra.ph/file/de776d34ef058b7d2ec12.mp4', 'https://telegra.ph/file/bc82653506c301b40679c.mp4',     'https://telegra.ph/file/7f10b3624991bbcee9ded.mp4', 'https://telegra.ph/file/51aa9701839dcc29066e9.mp4',     'https://telegra.ph/file/4f26132ac0296a34a45a8.mp4']
 
 var vid = vi[Math.floor(Math.random() * (vi.length))]
 
-//Image button(simple version)
-       /*
+                         let hi = `\n\n\t\t _Have a good day ${name}_ \t\t\n\n`
+                         
+                         //Gif button
+    // const pp = await conn.profilePictureUrl(conn.user.jid, 'image').catch(_ => './src/avatar_contact.png')
+    // if (m.isGroup) return conn.sendButton(m.chat, text.trim(), conn.getName(conn.user.jid), pp, [['Speedtest', _p + 'ping'], ['Owner', _p + 'owner']], m)
+    // conn.sendHydrated(m.chat, text.trim(), conn.getName(conn.user.jid), pp, null, null, null, null, [['Speedtest', _p + 'ping'], ['Owner', _p + 'owner']])
+   // conn.sendMessage(m.chat, { video: { url: 'https://telegra.ph/file/c82d5c358495e8ef15916.mp4' }, gifPlayback: true, gifAttribution: ~~(Math.random() * 2), caption: text.trim(), footer: await conn.getName(conn.user.jid) , templateButtons: [{ quickReplyButton: { displayText: 'Speedtest', id: `${_p}ping` }}, { quickReplyButton: { displayText: 'Owner', id: `${_p}owner` }} ] })
+     /*
+     
+     # Normal image button
 conn.sendButton(m.chat, text.trim(), conn.user.name, await genProfile(conn, m), [['Speedtest', _p + 'ping'], ['Owner', _p + 'owner']], m)
 */
 
-let pp = await( await conn.profilePictureUrl(m.sender, 'image').catch(() => 'https://telegra.ph/file/24fa902ead26340f3df2c.png'))
+let ppl = await( await conn.profilePictureUrl(m.sender, 'image').catch(() => 'https://telegra.ph/file/24fa902ead26340f3df2c.png'))
 
+    let ppb = await( await conn.profilePictureUrl(conn.user.jid, 'image').catch(() => 'https://telegra.ph/file/24fa902ead26340f3df2c.png'))
+    
 //Image button + externalAdReply
- /* 
- conn.sendButton(m.chat, hi, text.trim(), await genProfile(conn, m), [['OWNER', '-owner']], false, { quoted: m, contextInfo: { externalAdReply: { showAdAttribution: true,
+ /*
+conn.sendButton(m.chat, hi, text.trim(), await( await conn.getFile(ppb)).data, [['OWNER', '-owner']], false, { quoted: m, contextInfo: { externalAdReply: { showAdAttribution: true,
 mediaType:  2,
 mediaUrl: 'https://youtu.be/Nq3x1AkwgpY',
 title: time,
 body: me,
-sourceUrl: 'http://s.id/0x404', thumbnail: await( await conn.getFile(pp)).data
-  }
- } 
-})
+sourceUrl: 'http://s.id/0x404', thumbnail: await( await conn.getFile(ppl)).data
 */
 
+    await m.reply('_Ｌｏａｄｉｎｇ．．．_')
 // Gif button
-conn.sendMessage(m.chat, { video: { url: vid }, gifPlayback: true, gifAttribution: ~~(Math.random() * 2), caption: text.trim(), footer: me , templateButtons: [{ quickReplyButton: { displayText: 'Speedtest', id: `${_p}ping` }}, { quickReplyButton: { displayText: 'Owner', id: `${_p}owner` }} ] })
+ conn.sendMessage(m.chat, { video: { url: vid }, gifPlayback: true, gifAttribution: ~~(Math.random() * 2), caption: text.trim(), footer: me , templateButtons: [{ quickReplyButton: { displayText: 'Speedtest', id: `${_p}ping` }}, { quickReplyButton: { displayText: 'Owner', id: `${_p}owner` }} ] })
   } catch (e) {
     m.reply('An error occurred')
     m.reply(e)
@@ -134,25 +140,4 @@ function clockString(ms) {
   let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
   let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
   return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
-}
-
-async function genProfile(conn, m) {
-  let font = await jimp.loadFont('./names.fnt'),
-    mask = await jimp.read('https://i.imgur.com/552kzaW.png'),
-    welcome = await jimp.read(thumbnailUrl.getRandom()),
-    avatar = await jimp.read(await conn.profilePictureUrl(m.sender, 'image').catch(() => 'https://telegra.ph/file/24fa902ead26340f3df2c.png')),
-    status = (await conn.fetchStatus(m.sender).catch(console.log) || {}).status?.slice(0, 30) || 'Not Detected'
-
-    await avatar.resize(460, 460)
-    await mask.resize(460, 460)
-    await avatar.mask(mask)
-    await welcome.resize(welcome.getWidth(), welcome.getHeight())
-
-    await welcome.print(font, 550, 180, 'Name:')
-    await welcome.print(font, 650, 255, m.pushName.slice(0, 25))
-    await welcome.print(font, 550, 340, 'About:')
-    await welcome.print(font, 650, 415, status)
-    await welcome.print(font, 550, 500, 'Number:')
-    await welcome.print(font, 650, 575, PhoneNumber('+' + m.sender.split('@')[0]).getNumber('international'))
-    return await welcome.composite(avatar, 50, 170).getBufferAsync('image/png')
 }
