@@ -1,38 +1,18 @@
-import fetch from 'node-fetch'
+import { instagramdl, instagramdlv2, instagramdlv3, instagramdlv4 } from '@bochilteam/scraper'
+let handler = async (m, { conn, args, usedPrefix, command }) => {
 
-let handler = async (m, { conn, args }) => {
-	if (args[0] && /(?:\/p\/|\/reel\/|\/tv\/)([^\s&]+)/.test(args[0])) { /* IG Post || Reel || TV */
-		let res = await (await fetch('https://expressjs-akkun.up.railway.app/instagram/post?url=' + args[0])).json()
-		if (!res.success) throw res.msg
-		await m.reply('_In progress, please wait..._')
-		let data = res.result
-		for (let x = 0; x < data.links.length; x++) {
-			let caption = x == 0 ? data.caption : ''
-			await conn.sendMessage(m.chat, { [data.links[x].type]: { url: data.links[x].url }, caption }, { quoted: m })
-		}
-	} else if (args[0] && /\/s\/([^\s&]+)/.test(args[0])) { /* IG Highlights */
-		let [, _, mediaId] = /https:\/\/www\.instagram\.com\/s\/(.*?)\?story_media_id=([\w-]+)/g.exec(args[0])
-		let url = await (await fetch(args[0])).url
-		let { user, highlight } = await (await fetch(url + '?__a=1')).json()
-		let res = await (await fetch('http://expressjs-akkun.up.railway.app/instagram/highlight?user=' + user.username)).json()
-		if (!res.success) throw res.msg
-		// await m.reply('_In progress, please wait..._')
-		let data = res.result.data.filter(v => v['highlights_id'] == highlight.id)[0]
-		let filterHighlights = data.highlights.filter(v => v['media_id'].includes(mediaId))
-		console.log(filterHighlights)
-	} else if (args[0] && /\/stories\/([^\s&]+)/.test(args[0])) { /* IG Story */
-		let [, user, id] = (new URL(args[0])).pathname.split`/`.filter(v => v)
-		let res = await (await fetch('http://expressjs-akkun.up.railway.app/instagram/story?user=' + user)).json()
-		if (!res.success) throw res.msg
-		await m.reply('_In progress, please wait..._')
-		let data = res.result.stories.filter(v => v.id.includes(id))[0]
-		// console.log(user, id, data)
-		await conn.sendMessage(m.chat, { [data.type]: { url: data.url }, caption: data.caption || '' }, { quoted: m })
-	} else throw 'Invalid URL'
+    if (!args[0]) throw `Use example ${usedPrefix}${command} https://www.instagram.com/p/ByxKbUSnubS/?utm_source=ig_web_copy_link`
+
+  await m.reply(`${l}🔄${r}Ｌｏａｄｉｎｇ．．．`)
+    const results = await instagramdl(args[0])
+        .catch(async _ => await instagramdlv2(args[0]))
+        .catch(async _ => await instagramdlv3(args[0]))
+        .catch(async _ => await instagramdlv4(args[0]))
+    for (const { url } of results) await conn.sendFile(m.chat, url, 'instagram.mp4', `${l}✅${r} Done\n${l}🔗${r} Url: ${url}`, m)
 }
-handler.help = ['instagram']
+handler.help = ['ig'].map(v => v + ' <url>')
 handler.tags = ['downloader']
-handler.alias = ['ig', 'igdl', 'instagram', 'instagramdl']
-handler.command = /^(ig(dl)?|instagram(dl)?)$/i
+
+handler.command = /^(ig(dl)?)$/i
 
 export default handler
