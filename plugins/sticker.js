@@ -1,5 +1,8 @@
-/*
-  import { sticker } from '../lib/sticker.js'
+// Kalo di replit ga bisa
+// Ntah kenapa, sy ga tau, sy cuma manusia biasa
+
+
+import { sticker } from '../lib/sticker.js'
 import uploadFile from '../lib/uploadFile.js'
 import uploadImage from '../lib/uploadImage.js'
 import { webp2png } from '../lib/webp2mp4.js'
@@ -50,4 +53,3 @@ const isUrl = (text) => {
 }
 
 
-*/
