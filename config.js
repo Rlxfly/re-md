@@ -53,8 +53,6 @@ global.APIKeys = { // APIKey Here
 global.packname = 'WhatsAppCode'
 global.author = ''
 global.thumb = readFileSync('./me.png')
-global.thumb2 = readFileSync('./me2.png')
-global.thumb3 = readFileSync('./thumb2.png')
 global.multiplier = 69 // The higher, The harder levelup
 
 //Text here
