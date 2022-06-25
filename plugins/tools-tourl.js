@@ -1,33 +1,30 @@
-import fs from 'fs'
-import fetch from 'node-fetch'
-import FormData from 'form-data'
+import axios from 'axios'
+import clph from 'caliph-api'
+import fetch from "node-fetch"
+
+import uploadImage from '../lib/uploadImage.js'
 
 let handler = async (m) => {
 	let q = m.quoted ? m.quoted : m
-	let mime = q.mediaType || ''
-	if (/image|video|audio|sticker|document/.test(mime)) {
-		let media = await q.download(true)
-		let data = await uploadFile(media)
-		m.reply(data.files[0].url)
+	let mime = (q.msg || q).mimetype || q.mediaType || ''
+	let isTele = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
+	let media = await q.download()
+	if (isTele && media.length < 5242880) {
+		let data = await uploadImage(media)
+		m.reply(data)
+	} else if (/image|video|audio|sticker|document/.test(mime)) {
+		let data = await clph.tools.uploadFile(media),
+			shorten = await shortUrl(data.result.url)
+		m.reply(shorten)
 	} else throw 'No media found'
 }
-
 handler.help = ['tourl']
 handler.tags = ['tools']
-handler.command = /^(upload|up|tourl)$/i
+handler.command = /^(upload|tourl)$/i
 
 export default handler
 
-async function uploadFile(path) {
-	let form = new FormData()
-	form.append('files[]', fs.createReadStream(path))
-	let res = await (await fetch('https://uguu.se/upload.php', {
-		method: 'post',
-		headers: {
-			...form.getHeaders()
-		},
-		body: form
-	})).json()
-	await fs.promises.unlink(path)
-	return res
+async function shortUrl(url) {
+	let res = await fetch(`https://tinyurl.com/api-create.php?url=${url}`)
+	return await res.text()
 }
