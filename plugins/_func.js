@@ -40,11 +40,11 @@ handler.all = async function (m) {
 				externalAdReply: { // Bagian ini sesuka kalian berkreasi :'v
                     showAdAttribution: true,
 					title: me,
-					body: "Hello " + name,
+					body: "「 ꜱɪᴍᴩʟᴇ ᴡʜᴀᴛꜱᴀᴩᴩ ʙᴏᴛ 」",
 					mediaUrl: 'https://tinyurl.com/29rt6ynv',
-					description: '「 ꜱɪᴍᴩʟᴇ ᴡʜᴀᴛꜱᴀᴩᴩ ʙᴏᴛ 」',
+					description: '',
 					previewType: "PHOTO",
-					thumbnail: await (await fetch(pp)).buffer(),
+					thumbnail: thumb,
 					sourceUrl: "https://github.com/Rlxfly",					
 				}
 			}
