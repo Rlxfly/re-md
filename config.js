@@ -50,9 +50,11 @@ global.APIKeys = { // APIKey Here
 */
 
 // Sticker WM
-global.packname = 'WhatsAppCode'
+global.packname = `\t\t「 Cʀᴇᴀᴛᴇᴅ Bʏ Rʟxғʟʏ 」\n\t\t「 IG: rlxfly.uw 」\n\t\t「 SC: github.com/Rlxfly/re-md 」\t\t\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n`
 global.author = ''
 global.thumb = readFileSync('./me.png')
+global.thumb2 = readFileSync('./me2.png')
+global.thumb3 = readFileSync('./thumb2.png')
 global.multiplier = 69 // The higher, The harder levelup
 
 //Text here
@@ -60,6 +62,43 @@ global.me = 'Cʀᴇᴀᴛᴇᴅ Bʏ Ꭱʟxғʟʏ - 2022'
 global.str = '-------------'
 global.l = '「'
 global.r = '」'
+
+global.rpg = {
+  emoticon(string) {
+    string = string.toLowerCase()
+    let emot = {
+      level: '🧬',
+      limit: '🌌',
+      health: '❤️',
+      exp: '✉️',
+      money: '💵',
+      potion: '🥤',
+      diamond: '💎',
+      common: '📦',
+      uncommon: '🎁',
+      mythic: '🗳️',
+      legendary: '🗃️',
+      pet: '🎁',
+      trash: '🗑',
+      armor: '🥼',
+      sword: '⚔️',
+      wood: '🪵',
+      rock: '🪨',
+      string: '🕸️',
+      horse: '🐎',
+      cat: '🐈',
+      dog: '🐕',
+      fox: '🦊',
+      petFood: '🍖',
+      iron: '⛓️',
+      gold: '👑',
+      emerald: '💚'
+    }
+    let results = Object.keys(emot).map(v => [v, new RegExp(v, 'gi')]).filter(v => v[1].test(string))
+    if (!results.length) return ''
+    else return emot[results[0][0]]
+  }
+}
 
 let file = fileURLToPath(import.meta.url)
 watchFile(file, () => {
