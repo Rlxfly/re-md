@@ -53,8 +53,7 @@ global.APIKeys = { // APIKey Here
 global.packname = `\t\t「 Cʀᴇᴀᴛᴇᴅ Bʏ Rʟxғʟʏ 」\n\t\t「 IG: rlxfly.uw 」\n\t\t「 SC: github.com/Rlxfly/re-md 」\t\t\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n`
 global.author = ''
 global.thumb = readFileSync('./me.png')
-global.thumb2 = readFileSync('./me2.png')
-global.thumb3 = readFileSync('./thumb2.png')
+global.thumb2 = readFileSync('./me2.jpeg')
 global.multiplier = 69 // The higher, The harder levelup
 
 //Text here
