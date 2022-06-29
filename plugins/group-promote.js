@@ -6,7 +6,7 @@ m.reply(`@${users.split("@")[0]} is Now admin`)
 }
 handler.help = ['promote', '^', '↑'].map(v => v+'@tag')
 handler.tags = ["group"]
-handler.command = /^(promote|^|↑)$/i
+handler.command = /^(promote)$/i
 handler.botAdmin = true
 handler.admin = true
 handler.group = true
