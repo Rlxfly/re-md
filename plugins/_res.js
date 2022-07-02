@@ -8,7 +8,7 @@ export async function all(m) {
   //Kalo mau menggokil pake ini
  // let pp = await this.profilePictureUrl(m.sender, 'image').catch(_ => 'https://telegra.ph/file/24fa902ead26340f3df2c.png')
 
-  let stc = readFileSync('./tag.webp')
+  let stc = await( await fetch("http://tinyurl.com/28mds4zy")).buffer()
 
 if (m.isBaileys) return
     if (m.chat.endsWith('broadcast')) return
