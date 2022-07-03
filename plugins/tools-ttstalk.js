@@ -3,7 +3,7 @@ import cheerio from 'cheerio'
 
 let handler = async (m, { conn, text }) => {
   if (!text) throw 'Input username!'
-  let res = await twitterStalk(text), img = res?.pp_user
+  let res = await tiktokStalk(text), img = res?.pp_user
   delete res.pp_user
   let txt = Object.keys(res).map((v) => `*${v.capitalize()}:* ${res[v]}`).join`\n`
   await conn.sendFile(m.chat, img, '', txt, m)
