@@ -88,6 +88,7 @@
         "tesseract.js": "^2.1.5",
         "tiktok-scraper-ts": "^1.2.7",
         "url-regex-safe": "^3.0.0",
+        "wa-sticker-formatter": "^4.3.2",
         "xfarr-api": "^1.0.3",
         "yargs": "^17.3.1",
         "youtube-notifs": "^3.0.3",
