@@ -1,14 +1,31 @@
 import PhoneNumber from 'awesome-phonenumber'
+import moment from 'moment-timezone'
 
-let handler = async (m, { conn }) => {
-	let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.sender,
-		username = await conn.getName(who),
-		about = (await conn.fetchStatus(who).catch(console.error) || {}).status || '-',
-		number = PhoneNumber('+' + who.split('@')[0]).getNumber('international'),
-		avatar = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://telegra.ph/file/24fa902ead26340f3df2c.png'),
-		url = API('violetics', '/api/canvas/whatsapp-profile', { username, about, number, avatar }, 'apikey')
-	conn.sendMessage(m.chat, { image: { url }}, { quoted: m })
+let handler = async (m, { conn, usedPrefix }) => {
+  let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+  var { status, setAt } = await conn.fetchStatus(who).catch(() => {
+          return {
+            status: "",
+            setAt: "",
+          };
+        });
+   let pp
+  try {
+    pp = await conn.profilePictureUrl(who, "image")
+  } catch (e) {
+    pp = "https://telegra.ph/file/e47d9ec693e5288ad9382.jpg"
+  } finally {
+    let username = conn.getName(who)
+    let str = `
+• Name: ${username}, \n• Tag: @${who.replace(/@.+/, '')}, ${status ? '\n• Bio: ' + status : ''}, \n• Set At Bio: ${(setAt && moment(setAt).format("DD MMMM YYYY")) || "Unknown"}, \n• Number: ${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')},\n• Link: https://wa.me/${who.split`@`[0]}`.trim()
+
+    let mentionedJid = [who]
+    conn.sendFile(m.chat, pp, 'pp.jpeg', str, m, false, { contextInfo: { mentionedJid }})
+  }
 }
+handler.help = ['profile [@user]']
+handler.tags = ['tools']
 handler.command = /^(profile)$/i
+handler.group = true
 
 export default handler
