@@ -256,10 +256,12 @@ global.owner = [
 
 
 ### Thanks To 
-**All member of WhatsAppCode team**
+**All member of [`WhatsAppCode`](https://tinyurl.com/2c7k5wtl) team**
 
 
 #### Special Thanks to
 [![Ryn](https://github.com/Rainprjkt.png?size=100)](https://github.com/Rainprjkt)
 [![Rlxfly](https://github.com/Rlxfly.png?size=100)](https://github.com/Rlxfly)
+[![Arp](https://github.com/Akkun3704.png?size=100)](https://github.com/Akkun3704)
+[![Hijer bilek](https://github.com/Hyzerr.png?size=100)](https://github.com/Hyzerr)
 
