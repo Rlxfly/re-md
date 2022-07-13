@@ -39,7 +39,7 @@
     },
     "license": "GPL-3.0-or-later",
     "dependencies": {
-        "@adiwajshing/baileys" : "github:adiwajshing/baileys",
+        "@adiwajshing/baileys": "github:adiwajshing/baileys",
         "@bochilteam/scraper": "^2.0.0",
         "@deepgram/sdk": "^1.3.1",
         "@ibaraki-douji/pixivts": "^2.0.2",
