@@ -58,6 +58,7 @@
         "deepai": "^1.0.21",
         "didyoumean": "^1.2.2",
         "express": "^4.18.1",
+        "emoji-api": "^2.0.1",
         "file-type": "^17.1.1",
         "fluent-ffmpeg": "^2.1.2",
         "formdata-node": "^4.3.2",
