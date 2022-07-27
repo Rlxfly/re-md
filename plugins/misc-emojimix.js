@@ -9,7 +9,7 @@ let handler = async (m, { conn, text, args, usedPrefix, command }) => {
   const anu = await (await fetch(`https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${encodeURIComponent(emoji1)}_${encodeURIComponent(emoji2)}`)).json()
   if (anu.results[0] == undefined) throw 'Kombinasi Emoji Tidak Ditemukan'
   let emix = anu.results[0].media_formats.png_transparent.url
-  let stiker = await sticker(false, emix, global.packname, global.author)
+  let stiker = await sticker(false, emix, '', `${l}\t s.id/re-md \t ${r}`)
   conn.sendFile(m.chat, stiker, null, { asSticker: true }, m)
 }
 
