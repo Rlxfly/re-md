@@ -39,7 +39,7 @@ Kamu hanya bisa menggunakan 1 emoji, jangan lupa spasi`
         case 'ap':
           emoji.get(`${args[1]}`)
             .then(async emoji => {
-              let stiker = await sticker(false, emoji.images[0].url, 'ᴇʟᴀɪɴᴀ┃ ᴮᴼᵀ', ' @Xiao_yan_21')
+              let stiker = await sticker(false, emoji.images[0].url, global.packname, global.author)
               conn.sendFile(m.chat, stiker, null, { asSticker: true }, m)
             })
           break
