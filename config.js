@@ -61,6 +61,8 @@ global.me = 'Cʀᴇᴀᴛᴇᴅ Bʏ Ꭱʟxғʟʏ - 2022'
 global.str = '-------------'
 global.l = '「'
 global.r = '」'
+global.wait = '```「▰▰▰▱▱▱▱▱▱▱」ʟ ᴏ ᴀ ᴅ ɪ ɴ ɢ...```'
+global.eror = '```404 ᴇʀʀᴏʀ```'
 
 global.rpg = {
   emoticon(string) {
