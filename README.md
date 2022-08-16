@@ -59,7 +59,7 @@
 | BuildPack | LINK |
 |--------|--------|
 | **FFMPEG** |[here](https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest) |
-| **IMAGEMAGICK** | [here](https://github.com/DuckyTeam/heroku-buildpack-imagemagick) |
+| **IMAGEMAGICK** | [here](https://github.com/bogini/heroku-buildpack-graphicsmagick) |
 
 ### FOR TERMUX USER
 1. Type mentioned below given commands one by one in Termux.
