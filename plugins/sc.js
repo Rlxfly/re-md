@@ -13,7 +13,7 @@ let buttonMessage= {
 'externalAdReply':{
 'mediaUrl': 'http://github.com/Rlxfly/re-md',
 'mediaType': 2,
-'previewType': 'pdf',
+'previewType': 2,
 'title': 'Searching Source Code?',
 'body': me,
 'thumbnail': thumb2,
