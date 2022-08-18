@@ -2,18 +2,18 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
 
 
 let buttonMessage= {
-'document':{'url': 'http://s.id/0x404' },
+'document':{'url': 'http://s.id/re-md' },
 'mimetype': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
 'fileName': `「  𝑯𝒆𝒍𝒍𝒐 𝑾𝒐𝒓𝒍𝒅 」`,
 'fileLength': 22222222222222,
-'pageCount': 200,
+'pageCount': 222,
 'contextInfo':{
-'forwardingScore':200,
+'forwardingScore':222,
 'isForwarded':true,
 'externalAdReply':{
 'mediaUrl': 'http://github.com/Rlxfly/re-md',
 'mediaType': 2,
-'previewType': 'pdf',
+'previewType': 2,
 'title': 'Searching Source Code?',
 'body': me,
 'thumbnail': thumb2,
