@@ -1,20 +1,19 @@
-import fetch from 'node-fetch'
-import { webp2png } from '../lib/webp2mp4.js'
-
-let handler = async (m, { conn }) => {
-	let q = m.quoted ? m.quoted : m,
-		mime = (q || q.msg).mimetype || q.mediaType || ''
-	if (/image/.test(mime)) {
-		let url = await webp2png(await q.download()),
-			res = await fetch(API('https://api.ocr.space', '/parse/imageurl', { apikey: '8e65f273cd88957', url }))
-		if (res.status !== 200) throw res.statusText
-		let json = await res.json()
-		m.reply(json?.ParsedResults?.[0]?.ParsedText)
-	} else throw 'Reply an image!'
+import uploadImage from '../lib/uploadImage.js'
+import ocrapi from 'ocr-space-api-wrapper'
+import { MessageType } from '@adiwajshing/baileys'
+let handler = async (m, { conn, text }) => {
+      let q = m.quoted ? m.quoted : m
+    let mime = (q.msg || q).mimetype || ''
+    if (!mime) throw `balas gambar dengan perintah .ocr`
+    if (!/image\/(jpe?g|png)/.test(mime)) throw `_*jenis ${mime} tidak didukung!*_`
+    let img = await q.download()
+    let url = await uploadImage(img)
+    let hasil = await ocrapi.ocrSpace(url)
+ await m.reply(hasil.ParsedResults[0].ParsedText)    
 }
-handler.help = ['ocr']
+
+handler.help = ['ocr', 'totext']
 handler.tags = ['tools']
-handler.command = /^ocr$/i
+handler.command = /^(ocr|totext)$/i
 
 export default handler
-
