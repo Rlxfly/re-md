@@ -12,6 +12,8 @@
 [![Dolpin bilek](https://github.com/Vynn-SOLO.png?size=100)](https://github.com/Vynn-SOLO)
 
 > ` For help me create/fix this bot `
+
+> Open member for discussion group [`Come here`](https://s.rlxfly.my.id/re-gc)
 ## `READ README FIRST BEFORE USE THIS BOT!`
 
 --------
