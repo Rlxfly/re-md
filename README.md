@@ -13,7 +13,7 @@
 
 > ` For help me create/fix this bot `
 
-> Open member for discussion group [`Come here`](https://s.rlxfly.my.id/re-gc)
+> Open member for discussion group [`Come here`](https://s.rlxfly.my.id/gc)
 ## `READ README FIRST BEFORE USE THIS BOT!`
 
 --------
