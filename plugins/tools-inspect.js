@@ -24,7 +24,7 @@ const extractGroupMetadata = (result) => {
 		subject: group.attrs.subject,
 		creation: new Date(+group.attrs.creation * 1000).toLocaleString('id', { timeZone: 'Asia/Jakarta' }),
 		owner: group.attrs.creator ? 'wa.me/' + baileys.jidNormalizedUser(group.attrs.creator).split('@')[0] :
-			group.attrs.s_o ? 'wa.me/' + baileys.jidNormalizedUser(group.attrs.s_o).split('@')[0] :
+			// group.attrs.s_o ? 'wa.me/' + baileys.jidNormalizedUser(group.attrs.s_o).split('@')[0] :
 			group.attrs.id.includes('-') ? 'wa.me/' + group.attrs.id.split('-')[0] : '',
 		desc
 	}
