@@ -1,16 +1,23 @@
+import { generateWAMessageFromContent } from '@adiwajshing/baileys'
 import jimp from 'jimp'
 import PhoneNumber from 'awesome-phonenumber'
 
+let handler = async (m, { conn, usedPrefix: _p }) => {
+
+  let user = `@${m.sender.split('@')[0]}`
+    
+  
 let tags = {}
 const defaultMenu = {
-  before: 'Hi, %name 👋\n\n≻ ```Date: %date\n≻ Time: %time WIB\n≻ Runtime: %uptime```\n%readmore',
-  header: '╭┉┉┉≻ *“%category”* ≺┉┉┉╮',
+  before: `Hi, ${user} 👋\n\n≻ Date: %date\n≻ Time: %time WIB\n≻ Runtime: %uptime\n%readmore`,
+  header: '╭┉┉┉≻ *“%category”* ≺┉┉┉',
   body: `┆ \t ➦ _%cmd%islimit%isPremium_ `,
   footer: '┆',
-  after: `╰┉┉┉≻\t _${me}_ \t`,
+  after: `╰┉┉┉≻\t _© ${conn.user.name}_ \t`,
 }
 
-let handler = async (m, { conn, usedPrefix: _p }) => {
+
+
   try {
     let name = m.pushName || conn.getName(m.sender)
     let d = new Date(new Date + 3600000)
@@ -35,6 +42,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
         setTimeout(resolve, 1000)
       }) * 1000
     }
+    
     let uptime = clockString(_uptime)
     let help = Object.values(global.plugins).filter(plugin => !plugin.disabled).map(plugin => {
       return {
@@ -90,15 +98,15 @@ const vi = ['https://telegra.ph/file/067b2cb3312837533239c.mp4',
 var vid = vi[Math.floor(Math.random() * (vi.length))]
 
                          let hi = `\n\n\t\t _Have a good day ${name}_ \t\t\n\n`
-                         
-                         //Gif button
+
+    const totag = { contextInfo: { mentionedJid: [text] }}
+
+    let mtag = text + totag
     // const pp = await conn.profilePictureUrl(conn.user.jid, 'image').catch(_ => './src/avatar_contact.png')
     // if (m.isGroup) return conn.sendButton(m.chat, text.trim(), conn.getName(conn.user.jid), pp, [['Speedtest', _p + 'ping'], ['Owner', _p + 'owner']], m)
     // conn.sendHydrated(m.chat, text.trim(), conn.getName(conn.user.jid), pp, null, null, null, null, [['Speedtest', _p + 'ping'], ['Owner', _p + 'owner']])
    // conn.sendMessage(m.chat, { video: { url: 'https://telegra.ph/file/c82d5c358495e8ef15916.mp4' }, gifPlayback: true, gifAttribution: ~~(Math.random() * 2), caption: text.trim(), footer: await conn.getName(conn.user.jid) , templateButtons: [{ quickReplyButton: { displayText: 'Speedtest', id: `${_p}ping` }}, { quickReplyButton: { displayText: 'Owner', id: `${_p}owner` }} ] })
      /*
-     
-     # Normal image button
 conn.sendButton(m.chat, text.trim(), conn.user.name, await genProfile(conn, m), [['Speedtest', _p + 'ping'], ['Owner', _p + 'owner']], m)
 */
 
@@ -106,7 +114,7 @@ let ppl = await( await conn.profilePictureUrl(m.sender, 'image').catch(() => 'ht
 
     let ppb = await( await conn.profilePictureUrl(conn.user.jid, 'image').catch(() => 'https://telegra.ph/file/24fa902ead26340f3df2c.png'))
     
-//Image button + externalAdReply
+//Jejak
  /*
 conn.sendButton(m.chat, hi, text.trim(), await( await conn.getFile(ppb)).data, [['OWNER', '-owner']], false, { quoted: m, contextInfo: { externalAdReply: { showAdAttribution: true,
 mediaType:  2,
@@ -117,10 +125,13 @@ sourceUrl: 'http://s.id/0x404', thumbnail: await( await conn.getFile(ppl)).data
 */
 
     await m.reply('_Ｌｏａｄｉｎｇ．．．_')
+ await conn.relayMessage(m.chat, { reactionMessage: { key: m.key, text: '✅'  }}, { messageId: m.key.id })
 // Gif button
- // conn.sendMessage(m.chat, { video: { url: vid }, gifPlayback: true, gifAttribution: ~~(Math.random() * 2), caption: text.trim(), footer: me , templateButtons: [{ quickReplyButton: { displayText: 'Speedtest', id: `${_p}ping` }}, { quickReplyButton: { displayText: 'Owner', id: `${_p}owner` }} ] })
-    // live location 
-    const pre = generateWAMessageFromContent(m.chat, { liveLocationMessage:{
+ /* conn.sendMessage(m.chat, { video: { url: vid }, gifPlayback: true, gifAttribution: ~~(Math.random() * 2), caption: text.trim(), footer: conn.getName('6283820073017@s.whatsapp.net') ,templateButtons: [ { quickReplyButton: { displayText: 'Owner', id: `${_p}owner` }}, { urlButton: { displayText: '𝙎𝘾', url: 'http://github.com/Rlxfly/re-md'} }]})
+*/
+
+
+ const pre = generateWAMessageFromContent(m.chat, { liveLocationMessage:{
   degreesLatitude: 35.685506276233525,
   degreesLongitude: 139.75270667105852,
   accuracyInMeters: 100,
