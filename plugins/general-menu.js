@@ -118,7 +118,23 @@ sourceUrl: 'http://s.id/0x404', thumbnail: await( await conn.getFile(ppl)).data
 
     await m.reply('_Ｌｏａｄｉｎｇ．．．_')
 // Gif button
- conn.sendMessage(m.chat, { video: { url: vid }, gifPlayback: true, gifAttribution: ~~(Math.random() * 2), caption: text.trim(), footer: me , templateButtons: [{ quickReplyButton: { displayText: 'Speedtest', id: `${_p}ping` }}, { quickReplyButton: { displayText: 'Owner', id: `${_p}owner` }} ] })
+ // conn.sendMessage(m.chat, { video: { url: vid }, gifPlayback: true, gifAttribution: ~~(Math.random() * 2), caption: text.trim(), footer: me , templateButtons: [{ quickReplyButton: { displayText: 'Speedtest', id: `${_p}ping` }}, { quickReplyButton: { displayText: 'Owner', id: `${_p}owner` }} ] })
+    // live location 
+    const pre = generateWAMessageFromContent(m.chat, { liveLocationMessage:{
+  degreesLatitude: 35.685506276233525,
+  degreesLongitude: 139.75270667105852,
+  accuracyInMeters: 100,
+  speedInMps: 999,
+  degreesClockwiseFromMagneticNorth: 99,
+  caption: text.trim(),
+  sequenceNumber: 774236889,
+  timeOffset: 8600,
+  jpegThumbnail: thumb,
+  contextInfo: { mentionedJid: [m.sender] }
+}}, { quoted: m
+					})
+
+return conn.relayMessage(m.chat, pre.message, { messageId: pre.key.id })
   } catch (e) {
     m.reply('An error occurred')
     m.reply(e)
