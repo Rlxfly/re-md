@@ -1,6 +1,6 @@
 {
     "name": "re-md",
-    "version": "2.4.0",
+    "version": "2.5.0",
     "description": "Simple WhatsApp Bot",
     "main": "index.js",
     "type": "module",
