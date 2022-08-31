@@ -66,6 +66,7 @@
         "human-readable": "^0.2.1",
         "hxz-api": "^1.0.1",
         "image-to-pdf": "^1.0.0",
+        "instagram-url-direct": "^1.0.12",
         "insta-fetcher": "^1.3.20",
         "javascript-obfuscator": "^4.0.0",
         "jimp": "^0.16.1",
