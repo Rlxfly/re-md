@@ -15,7 +15,7 @@ ${l} 🔗 ${r}*Url:* ${await shorten(url)}\n${l} 🔭 ${r} *Author:* ${nickname}
 handler.help = ['tiktok'].map(v => v + ' <url>')
 handler.tags = ['downloader']
 
-handler.command = /^(tik(tok)?(dl)?)$/i
+handler.command = /^(tt|tiktok)(dl|nowm)?$/i
 
 export default handler
 
