@@ -14,7 +14,7 @@ let handler = async (m, { conn, text, usedPrefix, command, isOwner }) => {
     if (!chats) chats = global.db.data.chats[res] = {}
     if (expired) chats.expired = +new Date() + expired * 1000 * 60 * 60 * 24
 
-return conn.sendButton(m.chat,caption, me, 'Ok', 'y sj') 
+return m.reply(caption) 
 }
 handler.command = /^join$/i
 handler.rowner = true
