@@ -12,7 +12,7 @@ form.append('code', args[1] || '')
 
 let res = await axios.post('https://s.rlxfly.my.id/', form)
 
- await m.reply(res.data.url)
+ await m.reply(`${res.data.url}\n\nJika ingin custom url tambahkan text dibelakang url yg ingin kamu custom`)
 }
 
 handler.help = ['shorten']
