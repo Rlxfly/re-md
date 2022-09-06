@@ -9,7 +9,6 @@ return conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id
 }}
 
 handler.help = ['del', 'delete']
-
-handler.command = /^d(el(ete)?$/i
+handler.command = /^del(ete)?$/i
 
 export default handler
