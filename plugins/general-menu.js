@@ -114,7 +114,7 @@ let ppl = await( await conn.profilePictureUrl(m.sender, 'image').catch(() => 'ht
 
     let ppb = await( await conn.profilePictureUrl(conn.user.jid, 'image').catch(() => 'https://telegra.ph/file/24fa902ead26340f3df2c.png'))
     
-//Jejak
+//Button image
  /*
 conn.sendButton(m.chat, hi, text.trim(), await( await conn.getFile(ppb)).data, [['OWNER', '-owner']], false, { quoted: m, contextInfo: { externalAdReply: { showAdAttribution: true,
 mediaType:  2,
@@ -129,6 +129,20 @@ sourceUrl: 'http://s.id/0x404', thumbnail: await( await conn.getFile(ppl)).data
 // Gif button
  /* conn.sendMessage(m.chat, { video: { url: vid }, gifPlayback: true, gifAttribution: ~~(Math.random() * 2), caption: text.trim(), footer: conn.getName('6283820073017@s.whatsapp.net') ,templateButtons: [ { quickReplyButton: { displayText: 'Owner', id: `${_p}owner` }}, { urlButton: { displayText: '𝙎𝘾', url: 'http://github.com/Rlxfly/re-md'} }]})
 */
+
+//Payment Menu
+ /*await conn.relayMessage(m.chat,  {
+    requestPaymentMessage: {
+      currencyCodeIso4217: 'USD',
+      amount1000: 50000000,
+      requestFrom: m.sender,
+      noteMessage: {
+      extendedTextMessage: {
+      text: text.trim(),
+      contextInfo: {
+      externalAdReply: {
+      showAdAttribution: true
+      }}}}}}, {})*/
 
 
  const pre = generateWAMessageFromContent(m.chat, { liveLocationMessage:{
