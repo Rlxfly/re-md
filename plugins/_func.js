@@ -180,6 +180,11 @@ handler.all = async function (m) {
                                }
                               }
                              }
+                //Fakes Random
+           let fek = [global.ftroli, global.fkontak, global.fvn, global.fvid, global.ftextt, global.fliveLoc, global.fliveLoc2, global.ftoko, global.fdocs, global.fgclink, global.fgif]
+            
+               //Get Random Fake
+           global.fake = fek.getRandom()
 	}
 }
 
