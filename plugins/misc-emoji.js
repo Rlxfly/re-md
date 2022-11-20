@@ -1,7 +1,6 @@
 import { sticker } from '../lib/sticker.js'
 import MessageType from '@adiwajshing/baileys'
-import { EmojiAPI } from 'emoji-api' 
-const emoji = new EmojiAPI()
+import * as emoji from "emoji-api";
 
 let handler = async (m, { conn, args, usedPrefix, command, isPrems }) => {
   let er = `
