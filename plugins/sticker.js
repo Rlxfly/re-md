@@ -1,10 +1,18 @@
-// Tq to cina 😘 (Fahri)
-
 import fetch from 'node-fetch'
 import { addExif } from '../lib/sticker.js'
 import { Sticker } from 'wa-sticker-formatter'
 
 let handler = async (m, { conn, args, usedPrefix, command }) => {
+
+let d = new Date()
+let dd = d.toLocaleDateString('id', { timeZone: 'Asia/Jakarta' })
+
+let weem = `▢ Cᴏᴩyʀɪɢʜᴛ: ${conn.getName(m.sender)}
+▢ Sɪɴᴄᴇ: ${dd}
+▢ By Bᴏᴛ: ${conn.user.name}
+▢ Nᴜᴍʙᴇʀ: ${conn.user.jid.split('@')[0]}`
+
+let weem2 = `\t「\t🍃\t」\t`
 	let stiker = false
 	try {
 		let [packname, ...author] = args.join` `.split`|`
@@ -16,11 +24,11 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 			stiker = await addExif(img, packname || '', author || '')
 		} else if (/image/g.test(mime)) {
 			let img = await q.download?.()
-			stiker = await createSticker(img, false, global.packname, conn.getName(m.sender) || author)
+			stiker = await createSticker(img, false, packname || weem2, weem || author)
 		} else if (/video/g.test(mime)) {
 		//	if ((q.msg || q).seconds > 10) throw 'Max 10 seconds!'
 			let img = await q.download?.()
-			stiker = await mp4ToWebp(img, { pack: global.packname, author: author })
+			stiker = await mp4ToWebp(img, { pack: weem, author: author })
 		} else if (args[0] && isUrl(args[0])) {
 			stiker = await createSticker(false, args[0], '', author, 20)
 		} else throw `Reply an image/video/sticker with command ${usedPrefix + command}`
@@ -114,5 +122,3 @@ async function mp4ToWebp(file, stickerMetadata) {
 	})
 	return Buffer.from((await res.text()).split(';base64,')[1], 'base64')
 }
-
-
