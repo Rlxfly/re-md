@@ -29,6 +29,7 @@ import { Low, JSONFile } from 'lowdb'
 } from './lib/mongoDB.js' */
 import store from './lib/store.js'
 const {
+	useMultiFileAuthState, 
   // useSingleFileAuthState,
   DisconnectReason
 } = await import('@adiwajshing/baileys')
@@ -79,7 +80,7 @@ global.loadDatabase = async function loadDatabase() {
 loadDatabase()
 
 global.authFile = `${opts._[0] || 'session'}.data.json`
-const { state, saveState } = store.useSingleFileAuthState(global.authFile)
+const { state, saveCreds } = await useMultiFileAuthState('./sessions')
 
 const connectionOptions = {
   printQRInTerminal: true,
@@ -159,7 +160,7 @@ global.reloadHandler = async function (restatConn) {
   conn.participantsUpdate = handler.participantsUpdate.bind(global.conn)
   conn.onDelete = handler.deleteUpdate.bind(global.conn)
   conn.connectionUpdate = connectionUpdate.bind(global.conn)
-  conn.credsUpdate = saveState.bind(global.conn, true)
+  conn.credsUpdate = saveCreds(global.conn)
 
   conn.ev.on('messages.upsert', conn.handler)
   conn.ev.on('group-participants.update', conn.participantsUpdate)
