@@ -31,7 +31,7 @@
 | **ARGUMENTS OF RUNNING BOT** |[here](https://github.com/Rlxfly/re-md/#arguments-node----options-session-name) |
 | **FAQ** |[here](https://github.com/Rlxfly/re-md/#faq) | 
 | **CONTRIBUTE!!** |[here](https://github.com/Rlxfly/re-md/#want-to-contribute) |
-| **THATS TO** |[here](https://github.com/Rlxfly/re-md/#thanks-to) | 
+| **THANKS TO** |[here](https://github.com/Rlxfly/re-md/#thanks-to) | 
 
 --------
 ## NOTE: THIS BOT IS [ESM](https://nodejs.org/api/esm.html) BOT
