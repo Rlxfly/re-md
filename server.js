@@ -1,5 +1,6 @@
 import express from 'express'
 import fetch from 'node-fetch'
+import axios from 'axios'
 let app = global.app = express()
 
 function connect(PORT) {
@@ -34,8 +35,8 @@ function keepAlive() {
 	let url = `https://${process.env.REPL_SLUG}.${process.env.REPL_OWNER}.repl.co`
 	if (/(\/\/|\.)undefined\./.test(url)) return
 	setInterval(() => {
-		fetch(url).catch(console.log)
-	}, 30 * 1000)
+		axios(url).catch(console.error)
+	}, 5 * 1000)
 }
 
 function formatDate(n, locale = 'id') {
