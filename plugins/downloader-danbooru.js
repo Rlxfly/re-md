@@ -3,6 +3,8 @@ import cheerio from 'cheerio'
 
 let handler = async ( m, { conn, text } ) => {
 
+  if(!text) throw `Input url!`
+  
 let p = await danbooruDl(text)
 
   await m.reply("```Loading...```")
