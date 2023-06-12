@@ -39,7 +39,7 @@ export async function handler(chatUpdate) {
                 limit: 10,
                 afk: -1,
                 afkReason: '',
-                banned: falseimport chalk from 'chalk'
+                banned: false
 import { format } from 'util'
 import path, { join } from 'path'
 import { fileURLToPath } from 'url'
