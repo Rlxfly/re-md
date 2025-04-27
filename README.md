@@ -7,7 +7,7 @@
 [![Ryn](https://github.com/Rainprjkt.png?size=100)](https://github.com/Rainprjkt)
 [![Hijer bilek](https://github.com/Hyzerr.png?size=100)](https://github.com/Hyzerr)
 [![Rlxfly](https://github.com/Rlxfly.png?size=100)](https://github.com/Rlxfly)
-[![Arp](https://github.com/Akkun3704.png?size=100)](https://github.com/Akkun3704)
+[![Arip](https://github.com/Akkun3704.png?size=100)](https://github.com/Akkun3704)
 [![Lua](https://github.com/xxirfanx.png?size=100)](https://github.com/xxirfanx)
 [![Dolpin bilek](https://github.com/Vynn-SOLO.png?size=100)](https://github.com/Vynn-SOLO)
 
